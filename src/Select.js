@@ -309,7 +309,12 @@ var Select = React.createClass({
 		event.stopPropagation();
 		event.preventDefault();
 		if (this.state.isFocused) {
-			this.setState({
+			if (this.state.isOpen) {
+				this.setState({
+					isOpen: false
+				});
+			}
+			else this.setState({
 				isOpen: true
 			}, this._bindCloseMenuIfClickedOutside);
 		} else {
